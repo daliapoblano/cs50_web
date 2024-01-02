@@ -1,0 +1,15 @@
+$color: red; //variable called color
+
+div > ul{
+    //style unordered lists inside the div
+}
+
+ul{
+    font-size:14px;
+    color: $color;
+}
+
+ol{
+    font-size: 18px;
+    color: $color;
+}
