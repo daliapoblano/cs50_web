@@ -1,0 +1,56 @@
+body{
+    background-color: white;
+}
+#gs {
+  color: rgb(66, 133, 244);
+  text-align: center;
+  font-size: 150px;
+  font-weight: bold;
+}
+form{
+ text-align: center;
+}
+
+input{
+  border: 2px solid black;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.center{
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+}
+.baz{
+color:white;
+text-align:right;
+font-size: 20px;
+position: absolute; 
+top: 20px; 
+right:50px;
+}
+.roo{
+    color:white;
+    text-align:right;
+    font-size:20px;
+    position:absolute;
+    top: 20px;
+    right: 200px;
+}
+h2{
+    color:black;
+    font-size: 5px;
+}
+
+#advanceform{
+    text-align: left;
+}
+
+#ct{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    
+}
