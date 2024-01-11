@@ -1,0 +1,102 @@
+DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Script tags including the javascript libraries  -->
+        <script src = "https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script src = "https://unpkg.com/react-dom@17/umd/react-dom.production"></script>
+        <script src ="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <title>Counter</title>
+        <style>
+            #app {
+                text-align:center;
+                font-family: sans-serif;
+            }
+            #problem {
+
+                font-size:72px;
+            }
+            .incorrect{
+                color:red;
+            }
+            #winner {
+                font-size: 72px;
+                color:green;
+            }
+
+        </style>
+    </head>
+    <body>
+       <div id="app">
+
+       </div>
+       <!-- We need to give script a type text/babel that says we need to translate the JSX code to Javascript code -->
+       <script type="text/babel"> 
+        // Here we will write JSX code which is an extension to javascript
+        // Create a component and then React will render these componenets using javascript
+        function Hello(props) {
+            return( <h1> Hello, {props.name} ! </h1>);
+        }
+        // components can pass props 
+        function App() {
+            const [state, setState] = React.useState({
+                num1: 1,
+                num2: 2,
+                response: "",
+                score: 0,
+                incorrect: false
+
+            });
+            function updateResponse(event) {
+                setState({ 
+                    // ...state means use the same values for num1 and num2, we're only overwriting the response variable
+                    ...state,
+                    response: event.target.value });
+            }
+            function inputKeyPress(event) {
+                if(event.key === "Enter"){
+                    // Checking if the user got the answer right or wrong
+                      const answer = parseInt(state.response);
+                      if (state.num1 + state.num2 === state.response) {
+                        // User is correct
+                        setState({
+                            ...state,
+                            num1: Math.ceil(Math.random() * 10),
+                            num2: Math.ceil(math.random() * 10),
+                            score: state.score + 1,
+                            response: "",
+                            incorrect: false
+                        })
+
+                      }
+                      else{
+                        // User is wrong 
+                        setStae({
+                            ...state,
+                        score: state.score -1,
+                        response: "",
+                        incorrect: true
+                        })
+                      }
+                }
+            }
+            
+            }
+            if (state.score === 10) {
+                return(
+                    <div id="winner">
+                        You won!
+                    </div>
+                )
+            }
+            return (
+                <div>
+                   <div className={state.incorrect ? "incorrect": ""} id="problem">{state.num1} + {state.num2} </div>
+                   <input autoFocus={true} onKeyPress = { inputKeyPress} onChange= {updateResponse} value ={state.response}/>
+                   <div>Score: {state.score} </div>
+                </div>
+
+            );
+          ReactDOM.render(<App />, document.querySelector("#app"));
+       </script>
+    </body>
+</html>

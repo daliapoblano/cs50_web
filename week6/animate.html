@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <title>Animate</title>
+        <style>
+            /* @keyframes specifies key frames for this h1 element */
+            @keyframes grow{
+                /* set initial properties */
+                from {
+                    font-size: 20px;
+                    left:0%;
+
+                }
+                to {
+                    font-size:100px;
+                    left: 50%;
+                }
+            }
+
+            h1 {
+                position: relative;
+                animation-name: grow;
+                animation-duration: 2s;
+                animation-fill-mode: forwards;
+                animation-iteration-count: 2;
+                /* you can set iteration count to infinite too */
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const h1 = document.querySelector('h1');
+                h1.style.animationPlayState = 'paused';
+
+                document.querySelector('button').onclick = () => {
+                    if(h1.style.animationPlayState === 'paused') {
+                        h1.style.animationPlayState = 'running';
+                    }
+                    else {
+                        h1.style.animationPlayState = 'paused';
+                    }
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <button>Click Here!</button>
+        <h1>Welcome!</h1>
+    </body>
+</html>
